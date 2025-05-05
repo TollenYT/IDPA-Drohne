@@ -36,8 +36,13 @@
 // ===========================
 // Enter your WiFi credentials
 // ===========================
-const char *ssid = "OPPO";
-const char *password = "z!LpY2LHywtB@@@1";
+const char *ssid = "BrokeiPhone";
+const char *password = "00000000";
+
+// Set your desired static IP configuration
+IPAddress local_IP(172, 20, 10, 10);       // Your desired static IP
+IPAddress gateway(172, 20, 10, 1);         // Phone's IP (gateway)
+IPAddress subnet(255, 255, 255, 240);      // iPhone hotspot often uses this subnet
 
 void startCameraServer();
 void setupLedFlash(int pin);
@@ -131,6 +136,8 @@ void setup() {
 #if defined(LED_GPIO_NUM)
   setupLedFlash(LED_GPIO_NUM);
 #endif
+
+
 
   WiFi.begin(ssid, password);
   WiFi.setSleep(false);
